@@ -7,7 +7,7 @@ class Atm_servo : public Machine {
  public:
   enum { IDLE, UP, UP_NEXT, DOWN, DOWN_NEXT, FINISHED };  // STATES
   enum { EVT_MVUP, EVT_MVDN, EVT_TIMER, ELSE };           // EVENTS
-  enum { EVT_UP = 181, EVT_DOWN = 182 };                  // EXTERNAL
+  enum { EVT_UP = 181, EVT_DOWN = 182, EVT_SWEEP = 183 };                  // EXTERNAL
   Atm_servo( void ) : Machine(){};
   Atm_servo& begin( int pin, int pos = 0 );
   Atm_servo& trace( Stream& stream );

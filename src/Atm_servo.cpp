@@ -100,6 +100,10 @@ Atm_servo& Atm_servo::trigger( int event ) {
       servo_dest -= step_size;
       if ( servo_dest < 0 ) servo_dest = 0;
       break;
+    case EVT_SWEEP:
+	  if ( servo_pos == 0 ) servo_dest = 180;
+	  if ( servo_pos == 180 ) servo_dest = 0;
+      break;
     default:
       servo_dest = event;
       break;
@@ -112,7 +116,7 @@ Atm_servo& Atm_servo::trigger( int event ) {
  */
 
 int Atm_servo::state( void ) {
-  return Machine::state();
+  return servo_pos;
 }
 
 /* Nothing customizable below this line
