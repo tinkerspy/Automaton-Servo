@@ -101,8 +101,7 @@ Atm_servo& Atm_servo::trigger( int event ) {
       if ( servo_dest < 0 ) servo_dest = 0;
       break;
     case EVT_SWEEP:
-	  if ( servo_pos == 0 ) servo_dest = 180;
-	  if ( servo_pos == 180 ) servo_dest = 0;
+      servo_dest = servo_pos == 0 ? 180 : 0;
       break;
     default:
       servo_dest = event;
